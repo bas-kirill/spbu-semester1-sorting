@@ -9,13 +9,13 @@ std::random_device device;
 std::mt19937 generator(device());
 std::uniform_int_distribution<int> distribution(-INF,INF);
 
-uint64_t bubbleSortComparsionsNumber = 0;
-uint64_t quickSortComparsionsNumber = 0;
-uint64_t mergeSortComparsionsNumber = 0;
+unsigned long long bubbleSortComparsionsNumber = 0;
+unsigned long long quickSortComparsionsNumber = 0;
+unsigned long long mergeSortComparsionsNumber = 0;
 
-uint64_t bubbleSortPermutationsNumber = 0;
-uint64_t quickSortPermutationsNumber = 0;
-uint64_t mergeSortPermutationsNumber = 0;
+unsigned long long bubbleSortPermutationsNumber = 0;
+unsigned long long quickSortPermutationsNumber = 0;
+unsigned long long mergeSortPermutationsNumber = 0;
 
 void bubbleSort(int a[], int n) {
     bool flag = true;
