@@ -121,11 +121,6 @@ void fillRandomNumbers(int a[], int n) {
 }
 
 int main() {
-//    int n = 3;
-//    int a[] = {3, 3, 3};
-//    insertionSort(a, n);
-//    for (int i = 0; i < n; ++i)
-//        cout << a[i] << " ";
     int n;
     int cnt = 0;
     while (cnt <= 4) {
