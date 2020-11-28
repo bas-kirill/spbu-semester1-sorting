@@ -2,6 +2,7 @@
 #include <random>
 using namespace std;
 
+const int MAXN = 50'000;
 const int INF = 2e9;
 
 std::random_device device;
@@ -63,13 +64,13 @@ void merge(int a[], int l1, int r1, int l2, int r2) {
     int c[n + m];
     int idx = 0;
     int i = l1, j = l2;
-    while (i <= r1 or j <= r2) {
+    while (i <= r1 || j <= r2) {
         ++mergeSortComparsionsNumber;
         if (j == (r2 + 1)) {
             ++mergeSortComparsionsNumber;
             ++mergeSortPermutationsNumber;
             c[idx++] = a[i++];
-        } else if (i <= r1 and a[i] < a[j]) {
+        } else if (i <= r1 && a[i] < a[j]) {
             mergeSortComparsionsNumber += 2;
             ++mergeSortPermutationsNumber;
             c[idx++] = a[i++];
@@ -107,7 +108,6 @@ void fillRandomNumbers(int a[], int n) {
 
 int main() {
     int n;
-
     int cnt = 0;
     while (cnt <= 4) {
         switch (cnt) {
@@ -127,7 +127,7 @@ int main() {
                 n = 50'000;
                 break;
         }
-        int a[n];
+        int a[MAXN];
 
         fillRandomNumbers(a, n);
         bubbleSort(a, n);
