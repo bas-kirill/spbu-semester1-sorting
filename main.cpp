@@ -12,10 +12,12 @@ std::uniform_int_distribution<int> distribution(-INF,INF);
 unsigned long long bubbleSortComparsionsNumber = 0;
 unsigned long long quickSortComparsionsNumber = 0;
 unsigned long long mergeSortComparsionsNumber = 0;
+unsigned long long insertionSortComparsionsNumber = 0;
 
 unsigned long long bubbleSortPermutationsNumber = 0;
 unsigned long long quickSortPermutationsNumber = 0;
 unsigned long long mergeSortPermutationsNumber = 0;
+unsigned long long insertionSortPermutationsNumber = 0;
 
 void bubbleSort(int a[], int n) {
     bool flag = true;
@@ -97,6 +99,18 @@ void mergeSort(int a[], int n, int l, int r) {
     merge(a, l, middle, middle + 1, r);
 }
 
+void insertionSort(int a[], int n) {
+    for (int i = 1; i < n; ++i) {
+        int idx = i;
+        while (idx >= 1 && a[idx] < a[idx - 1]) {
+            insertionSortComparsionsNumber += 2;
+            swap(a[idx], a[idx - 1]);
+            ++insertionSortPermutationsNumber;
+            --idx;
+        }
+    }
+}
+
 void fillRandomNumbers(int a[], int n) {
     std::random_device device;
     std::mt19937 generator(device());
@@ -107,6 +121,11 @@ void fillRandomNumbers(int a[], int n) {
 }
 
 int main() {
+//    int n = 3;
+//    int a[] = {3, 3, 3};
+//    insertionSort(a, n);
+//    for (int i = 0; i < n; ++i)
+//        cout << a[i] << " ";
     int n;
     int cnt = 0;
     while (cnt <= 4) {
@@ -136,12 +155,12 @@ int main() {
         quickSort(a, n, 0, n - 1);
 
         fillRandomNumbers(a, n);
-        mergeSort(a, n, 0, n - 1);
+        insertionSort(a, n);
 
         cout << "n = " << n << ":" << endl;
         cout << '\t' << "Bubble sort: " << bubbleSortComparsionsNumber << " " << bubbleSortPermutationsNumber << endl;
         cout << '\t' << "Quick sort:  " << quickSortComparsionsNumber << " " << quickSortPermutationsNumber << endl;
-        cout << '\t' << "Merge sort:  " << mergeSortComparsionsNumber << " " << mergeSortPermutationsNumber << endl;
+        cout << '\t' << "Insertion sort:  " << insertionSortComparsionsNumber << " " << insertionSortPermutationsNumber << endl;
 
         ++cnt;
     }
