@@ -173,8 +173,6 @@ void fillRandomNumbers(int a[], int n) {
 
 int main() {
     int a[] = {1, 2, 4, 3, 5};
-    int count_com = 0;
-    int count_per = 0;
     quickSort(a, 0, 4);
     cout << quickSortComparsionsNumber << " " << quickSortPermutationsNumber;
 
